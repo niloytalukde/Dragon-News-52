@@ -1,11 +1,12 @@
 import { FaEye, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const CategoryCard = ({item }) => {
     return (
         <div className="card w-full bg-base-100 shadow-xl mb-6">
         <figure>
-            <img src={item.thumbnail_url} alt="Article Thumbnail" className="w-full h-52 object-cover" />
+            <img src={item.thumbnail_url} alt="Article " className="w-full h-52 object-cover" />
         </figure>
         <div className="card-body">
             <div className="flex items-center space-x-2">
@@ -16,7 +17,7 @@ const CategoryCard = ({item }) => {
                 </div>
             </div>
             <h2 className="card-title mt-4">{item.title}</h2>
-            <p className="text-sm text-gray-600">{item.details.slice(0, 100)}... <span className="text-primary cursor-pointer">Read More</span></p>
+            <p className="text-sm text-gray-600">{item.details.slice(0, 100)}... <Link to={`/news/${item._id}`} className="text-primary cursor-pointer">Read More</Link></p>
             <div className="card-actions mt-4 flex justify-between items-center">
                 <div className="flex items-center space-x-1 text-yellow-500">
                     <FaStar />
@@ -34,4 +35,4 @@ const CategoryCard = ({item }) => {
     
 
 
-export default CategoryCard;
+export default CategoryCard
